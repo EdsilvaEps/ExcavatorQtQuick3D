@@ -1,0 +1,62 @@
+cmake_minimum_required(VERSION 3.16)
+
+project(LearningExampleProject_1 VERSION 0.1 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(Qt6 REQUIRED COMPONENTS Quick)
+
+qt_standard_project_setup(REQUIRES 6.8)
+
+qt_add_executable(appLearningExampleProject_1
+    main.cpp
+)
+
+qt_add_qml_module(appLearningExampleProject_1
+    URI LearningExampleProject_1
+    QML_FILES
+        Main.qml
+    RESOURCES
+        meshes/cab_mesh.mesh
+        meshes/mesh_001_mesh.mesh
+        meshes/mesh_002_mesh.mesh
+        meshes/mesh_004_mesh.mesh
+        meshes/mesh_007_mesh.mesh
+        meshes/mesh_010_mesh.mesh
+        meshes/mesh_011_mesh.mesh
+        meshes/mesh_012_mesh.mesh
+        meshes/mesh_mesh.mesh
+)
+
+qt_add_resources(appLearningExampleProject_1 "app_assets"
+    PREFIX "/"
+    FILES
+        assets/models/excavator_modded.glb
+)
+
+target_sources(appLearningExampleProject_1 PRIVATE ${app_assets})
+
+
+add_subdirectory(modules/MyModule/)
+
+# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
+# If you are developing for iOS or macOS you should consider setting an
+# explicit, fixed bundle identifier manually though.
+set_target_properties(appLearningExampleProject_1 PROPERTIES
+#    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.appLearningExampleProject_1
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    MACOSX_BUNDLE TRUE
+    WIN32_EXECUTABLE TRUE
+)
+
+target_link_libraries(appLearningExampleProject_1
+    PRIVATE Qt6::Quick MyModulelibplugin
+)
+
+include(GNUInstallDirs)
+install(TARGETS appLearningExampleProject_1
+    BUNDLE DESTINATION .
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
