@@ -33,7 +33,7 @@ The demo features an excavator model that can be controlled through two joystick
 - Left joystick left and right: Turning the excavator tracks left or right for selecting the angle of movement
 - Right joystick up and down: Lifting and Lowering the main arm
 - Right joystick left and right: Swinging the arm and cockpit left and right
-- Free camera movement through direction contact with the screen
+- Free camera movement through direct contact with the screen
 
 <img src="images/final_version_desktop.gif" width="650" />
 
@@ -87,10 +87,10 @@ ExcavatorQtQuick3D/
  The first step to the development, and its first challenge, was the environment setup. The project requirements request the latest versions of all tools, but the various tutorials and docs are generally outdated with regards to Qt Creator/core, Android API, SDK and compilers/development kits. This hides issues such as version incompatibilities, deprecations and other problems, like the following examples:
 
  ### JDK 25.0.2.10 was largely unsupported
- The tutorial for setup of the android environment was JDK version 11.0.10, outdate compared to the latest JDK 25. But only installing it as part of the environment, I've realized it was incompatible with the local android toolchain, so I had to downgrade it to JDK 21.
+ The tutorial for setup of the android environment was using JDK version 11.0.10, outdated compared to the latest JDK 25. But only after installing this latest kit as part of the environment, I've realized it was incompatible with the local android toolchain, so I had to downgrade it to JDK 21.
 
  ### Qt 6.10.2 did not yet offer support for MSVC compiler
- Which proved to be an issue when following the Qt Quick 3D tutorial, which uses a Training Sandbox that packaged many useful tools for prototyping, but was built using an older version of Qt which was incompatible with 6.10 MinGW development kit. As a workaround, I used WSL, the Windows Subsystem for Linux, which allowed me to build the Training Sandbox in Ubuntu Linux, parallel to the Windows development environment but outside of it.
+ Which proved to be an issue when following the Qt Quick 3D tutorial, which uses a Training Sandbox that packaged many useful tools for prototyping, but was built using an older version of Qt incompatible with 6.10 MinGW development kit. As a workaround, I used WSL, the Windows Subsystem for Linux, which allowed me to build the Training Sandbox in Ubuntu Linux, parallel to the Windows development environment but outside of it.
 
  <img src="images/qt_3d_course_print.png" width="650" />
 
