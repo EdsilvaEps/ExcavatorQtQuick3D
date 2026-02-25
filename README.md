@@ -142,4 +142,17 @@ Thankfully, no major issues were observed during this phase, and it speaks volum
 </p>
 <img src="images/final_version_mobile.gif" width="200" />
 
+## Bugs are areas of Improvement
+This project is a PoC (Proof of Concept) for showcasing learning a development skills, and should not be considered a completed product. If given more time, I would make the following improvements
 
+### Align and improve rotation limits
+Due to the modular nature of the development, the angles of rotation of the different parts of the excavator might not be convenient and have mismatches with each other.
+
+### Improve and optimize the UI for different mobile models
+The positioning of the joystick might not necessarily work well on every mobile and sometime be too low on the screen, these cosmetic and quality of life improvements would certainly be addressed with more time.
+
+### Improve model rendering and granular movement
+The 3D model has rendering issues most likely due to the modifications made to it in Blender in order to simplify the movement. With more time, those issues could be overcome to include movement of other component, like the shovel, in order to have a more visually pleasing model.
+
+### Background and controls
+The background is currenly quite bare bones, and there are few other controls except the joystick. Given more time, more insteresting background and ground terrain could be included to add aestetic value to the project. 
