@@ -142,7 +142,7 @@ Thankfully, no major issues were observed during this phase, and it speaks volum
 </p>
 <img src="images/final_version_mobile.gif" width="200" />
 
-## Bugs are areas of Improvement
+## Areas of Improvement
 This project is a PoC (Proof of Concept) for showcasing learning a development skills, and should not be considered a completed product. If given more time, I would make the following improvements
 
 ### Align and improve rotation limits
@@ -156,3 +156,6 @@ The 3D model has rendering issues most likely due to the modifications made to i
 
 ### Background and controls
 The background is currenly quite bare bones, and there are few other controls except the joystick. Given more time, more insteresting background and ground terrain could be included to add aestetic value to the project. 
+
+### More responsive controls
+The joysticks are currently a bit cluncky and do not necessarily have a smooth response, this could be addressed given the proper attention.
