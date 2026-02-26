@@ -158,4 +158,4 @@ The 3D model has rendering issues most likely due to the modifications made to i
 The background is currenly quite bare bones, and there are few other controls except the joystick. Given more time, more insteresting background and ground terrain could be included to add aestetic value to the project. 
 
 ### More responsive controls
-The joysticks are currently a bit clunky and do not necessarily have a smooth response, this could be addressed given the proper attention.
+The joysticks are currently a bit clunky and do not necessarily have a smooth response, this could be addressed given the proper attention. Another issue is the impossibility for using both joysticks at the same time, which could be solved by using a "MultiPointTouchArea" to coordinate both elements.
