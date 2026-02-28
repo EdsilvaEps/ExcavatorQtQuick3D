@@ -2,6 +2,12 @@
 
 This project is an interactive excavator model demo using QtQuick3D, QML and C++, showcasing real-time 3D control, smooth animation and an intuitive and simple UI design. This project went from concept to the present MVP within 7 days from Tuesday, February 17th to the following Tuesday, February 24th, 2026.
 
+The repository includes the following folders:
+- ```ExcavatorQtQuick3D/``` :  Contains the main Excavator Demo Project
+- ```LearningExampleProject_1/``` : This contains little protypes and tests with different things I made during development, this is just to show my learning and thought process prior to the final delivery
+- ```images/``` : The images and gifs attached to this README
+
+
 
 <img src="images/deskotp_app.png" width="500" />
 
