@@ -134,7 +134,7 @@ Node {
 
         Node {
             id: excavBody
-            eulerRotation.z: rootNode.bucketRotation
+            //eulerRotation.z: rootNode.bucketRotation
 
             Model {
                 id: cngien_chamber
@@ -187,23 +187,30 @@ Node {
                     ]
                 }
 
-                Model {
-                    id: bucketModel
-                    objectName: "bucket"
-                    position: Qt.vector3d(-1.90735e-08, -1.98993, 0.379082)
-                    rotation: Qt.quaternion(1, -2.18557e-08, 0, 0)
-                    scale: Qt.vector3d(0.01, 0.01, 0.01)
-                    source: "meshes/mesh_002_mesh.mesh"
-                    materials: [
-                        material__1345_material
-                    ]
-                    Behavior on eulerRotation {
-                        NumberAnimation  {
-                            duration: 60
-                            easing.type: Easing.InOutQuad
+                Node {
+                    id: bucketNode
+                    eulerRotation.x: rootNode.bucketRotation
+
+                    Model {
+                        id: bucketModel
+                        objectName: "bucket"
+                        position: Qt.vector3d(-1.90735e-08, -1.98993, 0.379082)
+                        rotation: Qt.quaternion(1, -2.18557e-08, 0, 0)
+                        scale: Qt.vector3d(0.01, 0.01, 0.01)
+                        source: "meshes/mesh_002_mesh.mesh"
+                        materials: [
+                            material__1345_material
+                        ]
+                        Behavior on eulerRotation {
+                            NumberAnimation  {
+                                duration: 60
+                                easing.type: Easing.InOutQuad
+                            }
                         }
                     }
                 }
+
+
             }
 
             Behavior on eulerRotation.x {

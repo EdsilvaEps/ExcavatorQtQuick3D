@@ -5,8 +5,12 @@ qt_add_qml_module(${PROJECT_NAME}lib
     URI MyModule
     QML_FILES
         Joystick.qml
-        Excavator_mesh.qml
+        Excavator.qml
     RESOURCES
+        meshes/arm_link_mesh.mesh
+        meshes/boom_cylinder_mesh.mesh
+        meshes/bucket_cylinder_mesh.mesh
+        meshes/bucket_link_mesh.mesh
         meshes/cab_mesh.mesh
         meshes/mesh_001_mesh.mesh
         meshes/mesh_002_mesh.mesh

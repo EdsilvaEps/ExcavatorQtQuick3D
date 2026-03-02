@@ -7,7 +7,7 @@ Backend::Backend(QObject *parent)
 void Backend::moveArm(float amount)
 {
     m_armRotation += amount;
-    m_armRotation = qBound(m_lowerArmLimit, m_armRotation, m_higherArmLimit);
+    m_armRotation = qBound(m_armRotationLimits[0], m_armRotation, m_armRotationLimits[1]);
     qInfo() << "Arm rotation values: " << m_armRotation ;
     emit armRotationChanged();
 
@@ -16,8 +16,8 @@ void Backend::moveArm(float amount)
 void Backend::moveBucket(float amount)
 {
     m_bucketRotation += amount;
-    if(m_bucketRotation > m_higherBucketLimit) m_bucketRotation = m_higherBucketLimit;
-    if(m_bucketRotation < m_lowerBucketLimit) m_bucketRotation = m_lowerBucketLimit;
+    if(m_bucketRotation > m_bucketRotationLimits[1]) m_bucketRotation = m_bucketRotationLimits[1];
+    if(m_bucketRotation < m_bucketRotationLimits[0]) m_bucketRotation = m_bucketRotationLimits[0];
 
     qInfo() << "bucket rotation values: " << m_bucketRotation ;
 

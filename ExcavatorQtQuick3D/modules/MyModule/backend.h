@@ -29,15 +29,14 @@ public:
     Q_INVOKABLE void setTrackRotation(float amount);
 
 private:
-    float m_armRotation = 0;
     float m_bucketRotation = 0;
-    float m_lowerArmLimit = -20.0f;
-    float m_higherArmLimit = 20.0f;
-    float m_lowerBucketLimit = -30.0f;
-    float m_higherBucketLimit = 30.0f;
+    float m_bucketRotationLimits[2] = {-130.0f, 60.0f};
+
+    float m_armRotation = 0;
+    float m_armRotationLimits[2] = {-5.0f, 30.0f};
 
     float m_trackRotation = 0;
-    float m_trackRotationLimits[2] = {-60.0f, 60.0f};
+    float m_trackRotationLimits[2] = {-180.0f, 180.0f};
 
 signals:
     void armRotationChanged();

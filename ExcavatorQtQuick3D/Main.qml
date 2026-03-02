@@ -53,22 +53,22 @@ Window {
                 id: modelNode
                 //eulerRotation.y: 60
 
-                Excavator_mesh {
+                Excavator {
                     id: excavator
                     scale: Qt.vector3d(30, 30, 30)
                     armRotation: backend.armRotation
                     bucketRotation: backend.bucketRotation
-                    trackRotation: backend.trackRotation
+                    cockpitRotation: backend.trackRotation
 
                     // calculate where the tracks are pointing to
                     function forwardVector(){
-                        let yaw = backend.trackRotation * (Math.PI / 180)
-                        return Qt.vector3d(-Math.sin(yaw), 0, -Math.cos(yaw))
+                        let yaw = backend.trackRotation * (Math.PI / 180) // yaw converted to radians
+                        return Qt.vector3d(-Math.sin(yaw), 0, -Math.cos(yaw)) // front facing vector
                     }
 
                     function moveForward(speed) {
                         let f = forwardVector()
-                        position.x += f.x * speed
+                        position.x += f.x * speed // new position = old positon + direction * speed
                         position.z += f.z * speed
                         console.log("angular motion: x: " , f.x , " | y: ", f.y, "| z: ", f.z)
 
@@ -79,19 +79,7 @@ Window {
                         position.x -= f.x * speed
                         position.z -= f.z * speed
                     }
-
-
-                    onPositionChanged: {
-                        console.log("Absolute position of excavator: rotX: ",
-                                    excavator.trackRealRotationX, "| rotY",
-                                    excavator.trackRealRotationY, "| rotZ",
-                                    excavator.trackRealRotationZ, "| posX ",
-                                    excavator.position.x, "| posY ",
-                                    excavator.position.y, "| posZ ",
-                                    excavator.position.z)
-                    }
                 }
-
         }
 
     }
@@ -119,8 +107,8 @@ Window {
 
         upLabel: "Lift"
         downLabel: "Lower"
-        leftLabel: "Swing L"
-        rightLabel: "Swing R"
+        leftLabel: "Open"
+        rightLabel: "Close"
     }
 
     Backend{
@@ -130,10 +118,13 @@ Window {
     /*
     Timer to ensure the rotations will continue for as long
     as the user maintains the knob in the specified direction
+
+    Timer can be replaced with FrameAnimation, since it runs in synchronization with the frame update in the animation,
+    it, runs the handler every time there's a change in frames, it'd make animations smoother
     */
     Timer {
         id: boomStickTimer
-        interval: 16
+        interval: 16 // ~60 FPS
         repeat: true
         running: boomStick.command !== "None"
 
@@ -142,10 +133,10 @@ Window {
                 backend.moveArm(+0.5)
             } else if (boomStick.command === "Lower") {
                 backend.moveArm(-0.5)
-            } else if (boomStick.command === "Swing L") {
-                backend.moveBucket(+0.5)
-            } else if (boomStick.command === "Swing R") {
-                backend.moveBucket(-0.5)
+            } else if (boomStick.command === "Open") {
+                backend.moveBucket(+1.5)
+            } else if (boomStick.command === "Close") {
+                backend.moveBucket(-1.5)
             }
         }
     }

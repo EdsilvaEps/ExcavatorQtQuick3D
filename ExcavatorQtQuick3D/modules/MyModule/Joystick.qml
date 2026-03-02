@@ -116,10 +116,11 @@ Item {
 
                 // calculate the knob's position relative to the center to determine the region
                 let centerPos = root.radius - root.knobRadius
+                // distance moved from center
                 let dx = knob.x - centerPos
                 let dy = knob.y - centerPos
 
-                // normalize
+                // normalize (distance between -1 and +1, for example, -1 being full left and +1 full right)
                 let nx = dx / (root.radius - root.knobRadius)
                 let ny = dy / (root.radius - root.knobRadius)
 
