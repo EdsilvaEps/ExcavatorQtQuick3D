@@ -2,6 +2,12 @@
 
 This project is an interactive excavator model demo using QtQuick3D, QML and C++, showcasing real-time 3D control, smooth animation and an intuitive and simple UI design. This project went from concept to the present MVP within 7 days from Tuesday, February 17th to the following Tuesday, February 24th, 2026.
 
+The repository includes the following folders:
+- ```ExcavatorQtQuick3D/``` :  Contains the main Excavator Demo Project
+- ```LearningExampleProject_1/``` : This contains little protypes and tests with different things I made during development, this is just to show my learning and thought process prior to the final delivery
+- ```images/``` : The images and gifs attached to this README
+
+
 
 <img src="images/deskotp_app.png" width="500" />
 
@@ -33,7 +39,7 @@ The demo features an excavator model that can be controlled through two joystick
 - Left joystick left and right: Turning the excavator tracks left or right for selecting the angle of movement
 - Right joystick up and down: Lifting and Lowering the main arm
 - Right joystick left and right: Swinging the arm and cockpit left and right
-- Free camera movement through direction contact with the screen
+- Free camera movement through direct contact with the screen
 
 <img src="images/final_version_desktop.gif" width="650" />
 
@@ -87,10 +93,10 @@ ExcavatorQtQuick3D/
  The first step to the development, and its first challenge, was the environment setup. The project requirements request the latest versions of all tools, but the various tutorials and docs are generally outdated with regards to Qt Creator/core, Android API, SDK and compilers/development kits. This hides issues such as version incompatibilities, deprecations and other problems, like the following examples:
 
  ### JDK 25.0.2.10 was largely unsupported
- The tutorial for setup of the android environment was JDK version 11.0.10, outdate compared to the latest JDK 25. But only installing it as part of the environment, I've realized it was incompatible with the local android toolchain, so I had to downgrade it to JDK 21.
+ The tutorial for setup of the android environment was using JDK version 11.0.10, outdated compared to the latest JDK 25. But only after installing this latest kit as part of the environment, I've realized it was incompatible with the local android toolchain, so I had to downgrade it to JDK 21.
 
  ### Qt 6.10.2 did not yet offer support for MSVC compiler
- Which proved to be an issue when following the Qt Quick 3D tutorial, which uses a Training Sandbox that packaged many useful tools for prototyping, but was built using an older version of Qt which was incompatible with 6.10 MinGW development kit. As a workaround, I used WSL, the Windows Subsystem for Linux, which allowed me to build the Training Sandbox in Ubuntu Linux, parallel to the Windows development environment but outside of it.
+ Which proved to be an issue when following the Qt Quick 3D tutorial, which uses a Training Sandbox that packaged many useful tools for prototyping, but was built using an older version of Qt incompatible with 6.10 MinGW development kit. As a workaround, I used WSL, the Windows Subsystem for Linux, which allowed me to build the Training Sandbox in Ubuntu Linux, parallel to the Windows development environment but outside of it.
 
  <img src="images/qt_3d_course_print.png" width="650" />
 
@@ -142,4 +148,20 @@ Thankfully, no major issues were observed during this phase, and it speaks volum
 </p>
 <img src="images/final_version_mobile.gif" width="200" />
 
+## Areas of Improvement
+This project is a PoC (Proof of Concept) for showcasing learning and development skills, and should not be considered a completed product. If given more time, I would make the following improvements:
 
+### Align and improve rotation
+Due to the modular nature of the development, the angles of rotation of the different parts of the excavator might not be convenient and have mismatches with each other.
+
+### Improve and optimize the UI for different mobile models
+The positioning of the joystick might not necessarily work well on every mobile device and sometimes be located too low on the screen, these cosmetic and quality of life improvements would certainly be addressed with more time.
+
+### Improve model rendering and granular movement
+The 3D model has rendering issues most likely due to the modifications made to it in Blender in order to simplify the movement. With more time, those issues could be overcome to include movement of all other components, like the shovel, in order to have a more visually pleasing model.
+
+### Background and controls
+The background is currenly quite bare bones, and there are few other controls except the joystick. Given more time, more insteresting background and ground terrain could be included to add aestetic value to the project. 
+
+### More responsive controls
+The joysticks are currently a bit clunky and do not necessarily have a smooth response, this could be addressed given the proper attention. Another issue is the impossibility for using both joysticks at the same time, which could be solved by using a "MultiPointTouchArea" to coordinate both elements.
